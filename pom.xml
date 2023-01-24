@@ -14,7 +14,7 @@
     </parent>
     <groupId>springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>spring-pet-clinic</name>
     <description>spring-pet-clinic</description>
     <dependencies>
