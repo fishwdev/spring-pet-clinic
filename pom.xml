@@ -46,8 +46,7 @@
     </build>
 
     <scm>
-        <url>https://github.com/fishwdev/spring-pet-clinic</url>
-        <developerConnection>scm:git:https://github.com/fishwdev/spring-pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:fishwdev/spring-pet-clinic.git</developerConnection>
         <tag>test</tag>
     </scm>
 
