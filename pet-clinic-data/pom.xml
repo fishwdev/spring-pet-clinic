@@ -65,4 +65,8 @@
     </plugins>
 </build>
 
+
+  <scm>
+    <tag>spring-pet-clinic-0.0.1</tag>
+  </scm>
 </project>
