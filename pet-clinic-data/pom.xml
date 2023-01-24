@@ -12,8 +12,6 @@
     <artifactId>pet-clinic-data</artifactId>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
 
@@ -49,6 +47,7 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.3.5.RELEASE</version>
             <executions>
                 <execution>
                     <goals>
