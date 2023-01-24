@@ -14,7 +14,7 @@
     </parent>
     <groupId>springframework</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>spring-pet-clinic</name>
     <description>spring-pet-clinic</description>
     <dependencies>
@@ -48,7 +48,7 @@
     <scm>
         <connection>scm:git:git@github.com:fishwdev/spring-pet-clinic.git</connection>
         <developerConnection>scm:git:git@github.com:fishwdev/spring-pet-clinic.git</developerConnection>
-        <tag>test</tag>
+        <tag>spring-pet-clinic-0.0.1</tag>
     </scm>
 
 </project>
