@@ -47,7 +47,6 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:fishwdev/spring-pet-clinic.git</developerConnection>
-        <tag>test</tag>
     </scm>
 
 </project>
