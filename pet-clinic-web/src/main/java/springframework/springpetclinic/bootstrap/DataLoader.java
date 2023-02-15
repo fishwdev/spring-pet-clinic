@@ -10,39 +10,41 @@ import springframework.springpetclinic.services.VetService;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerService ownerService;
-    private final VetService vetService;
+	private final OwnerService ownerService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
-        this.ownerService = ownerService;
-        this.vetService = vetService;
-    }
+	private final VetService vetService;
 
-    @Override
-    public void run(String... args) throws Exception {
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Michael");
-        owner1.setLastName("Weston");
-        ownerService.save(owner1);
+	public DataLoader(OwnerService ownerService, VetService vetService) {
+		this.ownerService = ownerService;
+		this.vetService = vetService;
+	}
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Fiona");
-        owner2.setLastName("Glenna");
-        ownerService.save(owner2);
+	@Override
+	public void run(String... args) throws Exception {
+		Owner owner1 = new Owner();
+		owner1.setFirstName("Michael");
+		owner1.setLastName("Weston");
+		ownerService.save(owner1);
 
-        System.out.println("Loaded Owners...");
+		Owner owner2 = new Owner();
+		owner2.setFirstName("Fiona");
+		owner2.setLastName("Glenna");
+		ownerService.save(owner2);
 
-        Vet vet1 = new Vet();
-        vet1.setFirstName("Sam");
-        vet1.setLastName("Axe");
-        vetService.save(vet1);
+		System.out.println("Loaded Owners...");
 
-        Vet vet2 = new Vet();
-        vet2.setFirstName("Jessie");
-        vet2.setLastName("Porter");
-        vetService.save(vet2);
+		Vet vet1 = new Vet();
+		vet1.setFirstName("Sam");
+		vet1.setLastName("Axe");
+		vetService.save(vet1);
 
-        System.out.println("Loaded Vets...");
+		Vet vet2 = new Vet();
+		vet2.setFirstName("Jessie");
+		vet2.setLastName("Porter");
+		vetService.save(vet2);
 
-    }
+		System.out.println("Loaded Vets...");
+
+	}
+
 }
