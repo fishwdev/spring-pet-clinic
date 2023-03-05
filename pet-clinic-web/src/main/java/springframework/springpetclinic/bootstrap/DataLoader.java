@@ -16,8 +16,7 @@ public class DataLoader implements CommandLineRunner {
 	private final SpecialityService specialityService;
 	private final VisitService visitService;
 
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-					  SpecialityService specialityService, VisitService visitService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
@@ -92,11 +91,11 @@ public class DataLoader implements CommandLineRunner {
 		Speciality savedRadiology = specialityService.save(radiology);
 
 		Speciality surgery = new Speciality();
-		radiology.setDescription("Surgery");
+		surgery.setDescription("Surgery");
 		Speciality savedSurgery = specialityService.save(surgery);
 
 		Speciality dentistry = new Speciality();
-		radiology.setDescription("Dentistry");
+		dentistry.setDescription("Dentistry");
 		Speciality savedDentistry = specialityService.save(dentistry);
 
 		System.out.println("Loaded Specialities...");
@@ -110,7 +109,7 @@ public class DataLoader implements CommandLineRunner {
 		Vet vet2 = new Vet();
 		vet2.setFirstName("Jessie");
 		vet2.setLastName("Porter");
-		vet1.getSpecialities().add(savedSurgery);
+		vet2.getSpecialities().add(savedSurgery);
 		vetService.save(vet2);
 
 		System.out.println("Loaded Vets...");
