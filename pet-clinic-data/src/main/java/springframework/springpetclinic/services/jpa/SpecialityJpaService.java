@@ -13,36 +13,37 @@ import java.util.Set;
 @Profile("javaspringjpa")
 public class SpecialityJpaService implements SpecialityService {
 
-    private final SpecialityRepository specialityRepository;
+	private final SpecialityRepository specialityRepository;
 
-    public SpecialityJpaService(SpecialityRepository specialityRepository) {
-        this.specialityRepository = specialityRepository;
-    }
+	public SpecialityJpaService(SpecialityRepository specialityRepository) {
+		this.specialityRepository = specialityRepository;
+	}
 
-    @Override
-    public Set<Speciality> findAll() {
-        Set<Speciality> specialities = new HashSet<>();
-        specialityRepository.findAll().forEach(specialities::add);
-        return specialities;
-    }
+	@Override
+	public Set<Speciality> findAll() {
+		Set<Speciality> specialities = new HashSet<>();
+		specialityRepository.findAll().forEach(specialities::add);
+		return specialities;
+	}
 
-    @Override
-    public Speciality findById(Long aLong) {
-        return specialityRepository.findById(aLong).orElse(null);
-    }
+	@Override
+	public Speciality findById(Long aLong) {
+		return specialityRepository.findById(aLong).orElse(null);
+	}
 
-    @Override
-    public Speciality save(Speciality object) {
-        return specialityRepository.save(object);
-    }
+	@Override
+	public Speciality save(Speciality object) {
+		return specialityRepository.save(object);
+	}
 
-    @Override
-    public void delete(Speciality object) {
-        specialityRepository.delete(object);
-    }
+	@Override
+	public void delete(Speciality object) {
+		specialityRepository.delete(object);
+	}
 
-    @Override
-    public void deleteById(Long aLong) {
-        specialityRepository.deleteById(aLong);
-    }
+	@Override
+	public void deleteById(Long aLong) {
+		specialityRepository.deleteById(aLong);
+	}
+
 }

@@ -11,10 +11,11 @@ import springframework.springpetclinic.services.PetTypeService;
 import java.util.Set;
 
 @Service
-@Profile({"default", "map"})
+@Profile({ "default", "map" })
 public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	private final PetTypeService petTypeService;
+
 	private final PetService petService;
 
 	public OwnerMapService(PetTypeService petTypeService, PetService petService) {
