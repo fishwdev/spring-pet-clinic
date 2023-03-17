@@ -24,94 +24,96 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class OwnerJpaServiceTest {
 
-    @Mock
-    OwnerRepository ownerRepository;
+	@Mock
+	OwnerRepository ownerRepository;
 
-    @Mock
-    PetRepository petRepository;
+	@Mock
+	PetRepository petRepository;
 
-    @Mock
-    PetTypeRepository petTypeRepository;
+	@Mock
+	PetTypeRepository petTypeRepository;
 
-    @InjectMocks
-    OwnerJpaService ownerJpaService;
+	@InjectMocks
+	OwnerJpaService ownerJpaService;
 
-    Long ownerId = 1L;
-    String lastName = "Smith";
+	Long ownerId = 1L;
 
-    Owner owner;
+	String lastName = "Smith";
 
-    @BeforeEach
-    void setUp() {
-        owner = new Owner();
-        owner.setId(ownerId);
-        owner.setLastName(lastName);
-    }
+	Owner owner;
 
-    @Test
-    void findAll() {
-        Set<Owner> owners = new HashSet<>();
-        owners.add(new Owner());
-        owners.add(new Owner());
+	@BeforeEach
+	void setUp() {
+		owner = new Owner();
+		owner.setId(ownerId);
+		owner.setLastName(lastName);
+	}
 
-        when(ownerRepository.findAll()).thenReturn(owners);
+	@Test
+	void findAll() {
+		Set<Owner> owners = new HashSet<>();
+		owners.add(new Owner());
+		owners.add(new Owner());
 
-        Set<Owner> returnedOwners = ownerJpaService.findAll();
+		when(ownerRepository.findAll()).thenReturn(owners);
 
-        assertNotNull(returnedOwners);
-        assertEquals(2, returnedOwners.size());
-    }
+		Set<Owner> returnedOwners = ownerJpaService.findAll();
 
-    @Test
-    void findById() {
-        when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(owner));
+		assertNotNull(returnedOwners);
+		assertEquals(2, returnedOwners.size());
+	}
 
-        Owner returnedOwner = ownerJpaService.findById(ownerId);
+	@Test
+	void findById() {
+		when(ownerRepository.findById(anyLong())).thenReturn(Optional.of(owner));
 
-        assertEquals(ownerId, returnedOwner.getId());
-    }
+		Owner returnedOwner = ownerJpaService.findById(ownerId);
 
-    @Test
-    void findByNonExistingId() {
-        when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
+		assertEquals(ownerId, returnedOwner.getId());
+	}
 
-        Owner returnedOwner = ownerJpaService.findById(ownerId);
+	@Test
+	void findByNonExistingId() {
+		when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
 
-        assertNull(returnedOwner);
-    }
+		Owner returnedOwner = ownerJpaService.findById(ownerId);
 
-    @Test
-    void save() {
-        when(ownerRepository.save(any())).thenReturn(owner);
-        Owner returnedOwner = ownerJpaService.save(owner);
+		assertNull(returnedOwner);
+	}
 
-        assertNotNull(returnedOwner);
+	@Test
+	void save() {
+		when(ownerRepository.save(any())).thenReturn(owner);
+		Owner returnedOwner = ownerJpaService.save(owner);
 
-        verify(ownerRepository).save(any());
-    }
+		assertNotNull(returnedOwner);
 
-    @Test
-    void delete() {
-        ownerJpaService.delete(owner);
+		verify(ownerRepository).save(any());
+	}
 
-        verify(ownerRepository).delete(any());
-    }
+	@Test
+	void delete() {
+		ownerJpaService.delete(owner);
 
-    @Test
-    void deleteById() {
-        ownerJpaService.deleteById(ownerId);
+		verify(ownerRepository).delete(any());
+	}
 
-        verify(ownerRepository).deleteById(anyLong());
-    }
+	@Test
+	void deleteById() {
+		ownerJpaService.deleteById(ownerId);
 
-    @Test
-    void findByLastName() {
-        when(ownerRepository.findByLastName(any())).thenReturn(owner);
+		verify(ownerRepository).deleteById(anyLong());
+	}
 
-        Owner returnedOwner = ownerJpaService.findByLastName(lastName);
+	@Test
+	void findByLastName() {
+		when(ownerRepository.findByLastName(any())).thenReturn(owner);
 
-        assertEquals(lastName, returnedOwner.getLastName());
+		Owner returnedOwner = ownerJpaService.findByLastName(lastName);
 
-        verify(ownerRepository).findByLastName(any());
-    }
+		assertEquals(lastName, returnedOwner.getLastName());
+
+		verify(ownerRepository).findByLastName(any());
+	}
+
 }
